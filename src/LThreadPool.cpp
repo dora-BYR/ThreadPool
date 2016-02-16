@@ -107,7 +107,7 @@ void LThreadPool::taskSchedule()
 			//LLOG("LTheadPool: begin to execute a task: %s", task->getID().c_str());
 			task->execute();
             
-            delete [] task;
+			delete task;
             task = nullptr;
 		}
 	}
