@@ -42,16 +42,17 @@ void LTest::test_single_thread_multi_task()
 
 void LTest::test_multi_thread_multi_task()
 {
-	auto pool = LThreadPool::getInstance();
-	pool->pushTask([=]() {
+	// sample 1
+	auto task1 = LTask::create([=]() {
 		LLOG("i'm a sub thread task 1");
 		do {
 			LLOG("i'm task 1");
 		} while (1);
 	});
-	/////////////////////
-	pool->addThread(1);
+	task1->commit(true); // 'true' - new thead created.
 
+	// sample 2
+	auto pool = LThreadPool::getInstance();
 	const char * name = "longhui";
 	int age = 25;
 	std:string desc("master of BUPT");
@@ -68,7 +69,8 @@ void LTest::test_multi_thread_multi_task()
 			LLOG("desc = %s", _dataParam->getStringValue("desc").c_str());
 		} while (1);
 	}, dataParam);
-	////////////////////
+
+	// sample 3
 	pool->pushTask([=]() {
 		LLOG("i'm a sub thread task 3");
 		do {

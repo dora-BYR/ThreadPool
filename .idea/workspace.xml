@@ -26,13 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="647a82d2-0a02-469e-b865-07bfed3e2415" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LTask.cpp" afterPath="$PROJECT_DIR$/src/LTask.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LTask.h" afterPath="$PROJECT_DIR$/src/LTask.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LThreadPool.cpp" afterPath="$PROJECT_DIR$/src/LThreadPool.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LThreadPool.h" afterPath="$PROJECT_DIR$/src/LThreadPool.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/LTest.cpp" afterPath="$PROJECT_DIR$/test/LTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/LTest.h" afterPath="$PROJECT_DIR$/test/LTest.h" />
     </list>
     <ignored path="LThreadPool.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,21 +59,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2453271">
+            <state vertical-scroll-proportion="0.0">
               <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LTest.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LTest.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/LTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.0">
-              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.7107232">
+              <caret line="53" column="15" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -144,8 +138,8 @@
         <option value="$PROJECT_DIR$/src/LTask.cpp" />
         <option value="$PROJECT_DIR$/src/LThreadPool.h" />
         <option value="$PROJECT_DIR$/src/LThreadPool.cpp" />
-        <option value="$PROJECT_DIR$/test/LTest.cpp" />
         <option value="$PROJECT_DIR$/test/main.cpp" />
+        <option value="$PROJECT_DIR$/test/LTest.cpp" />
       </list>
     </option>
   </component>
@@ -383,21 +377,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/LTest.cpp">
+    <entry file="file://$PROJECT_DIR$/test/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.0">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/main.cpp">
+    <entry file="file://$PROJECT_DIR$/test/LTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2453271">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
+        <state vertical-scroll-proportion="0.7107232">
+          <caret line="53" column="15" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
