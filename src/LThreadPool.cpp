@@ -1,5 +1,4 @@
 #include "LThreadPool.h"
-#include <thread>
 
 NS_LONG_BEGIN
 

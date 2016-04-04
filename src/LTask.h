@@ -9,6 +9,7 @@
 #define __L_TASK_H__
 
 #include "define_l.h"
+#include <string>
 #include <map>
 #include <functional>
 

@@ -7,12 +7,13 @@
 
 #ifndef _L_THREADPOOL_H_
 #define _L_THREADPOOL_H_
-
 #include <queue>
 #include <mutex>
 #include <atomic>
+#include <thread>
 #include "define_l.h"
 #include "LTask.h"
+
 
 NS_LONG_BEGIN
 
