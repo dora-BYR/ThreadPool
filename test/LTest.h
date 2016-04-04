@@ -8,8 +8,7 @@
 #ifndef __L_TEST_H__
 #define __L_TEST_H__
 
-#include "../src/LTask.h"
-#include "../src/LThreadPool.h"
+#include "../src/define_l.h"
 
 NS_LONG_BEGIN
 

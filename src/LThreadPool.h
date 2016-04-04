@@ -25,15 +25,18 @@ public:
 	static LThreadPool * getInstance();
 
 public:
-	void addThread(int count);
+	void addThread(int count = 1);
+
 	void pushTask(std::function<void()> taskFunction);
+	void pushTask(LTask * task);
 	void pushCommonTask(std::function<void(TaskDataParam *)> taskFunction, TaskDataParam * dataParam);
     void popTask();
+
 	void open();
 	void close();
 private:
 	static LThreadPool * create();
-	bool initialize();
+	bool doAddDefaultThread();
 	void taskSchedule();
 	LTask * getOneTask();
 private:

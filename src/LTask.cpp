@@ -1,4 +1,5 @@
 #include "LTask.h"
+#include "LThreadPool.h"
 
 NS_LONG_BEGIN
 
@@ -80,6 +81,22 @@ LTask::LTask():
 {
 }
 
+    LTask::LTask(TaskData *taskData):
+            m_pTaskData(taskData)
+    {
+
+    }
+
+    LTask::LTask(std::function<void()> taskFunc)
+    {
+        m_pTaskData = new TaskData("normal", taskFunc);
+    }
+
+    LTask::LTask(std::function<void(TaskDataParam *)> taskFunction, TaskDataParam *dataParam)
+    {
+        m_pTaskData = new TaskDataCommon("common", taskFunction, dataParam);
+    }
+
 LTask::~LTask()
 {
 
@@ -87,23 +104,21 @@ LTask::~LTask()
 
 LTask * LTask::create(TaskData * taskData)
 {
-	auto task = new LTask();
-	if (task && task->initialize(taskData))
-	{
-		return task;
-	}
-	else
-	{
-		//task->release();
-	}
-	return nullptr;
+	auto task = new LTask(taskData);
+	return task;
 }
 
-bool LTask::initialize(TaskData * taskData)
-{
-	m_pTaskData = taskData;
-	return true;
-}
+    LTask* LTask::create(std::function<void()> taskFunc)
+    {
+        auto task = new LTask(taskFunc);
+        return task;
+    }
+
+    LTask* LTask::create(std::function<void(TaskDataParam *)> taskFunction, TaskDataParam *dataParam)
+    {
+        auto task = new LTask(taskFunction, dataParam);
+        return task;
+    }
 
 TaskData * LTask::getTaskData()
 {
@@ -135,5 +150,16 @@ void LTask::execute()
         return m_pTaskData->execute();
     }
 }
+
+    void LTask::commit(bool addNewThread)
+    {
+        auto pool = LThreadPool::getInstance();
+        pool->pushTask(this);
+
+        if (addNewThread)
+        {
+            pool->addThread();
+        }
+    }
 
 NS_LONG_END

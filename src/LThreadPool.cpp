@@ -28,21 +28,8 @@ LThreadPool * LThreadPool::getInstance()
 LThreadPool * LThreadPool::create()
 {
 	auto pool = new LThreadPool();
-	if (pool && pool->initialize())
-	{
-		return pool;
-	}
-	else
-	{
-		//pool->release();
-	}
-	return nullptr;
-}
-
-bool LThreadPool::initialize()
-{
-	this->addThread(m_defaultThreadCount);
-	return true;
+	pool->doAddDefaultThread();
+	return pool;
 }
 
 void LThreadPool::pushTask(std::function<void()> taskFunction)
@@ -132,5 +119,28 @@ void LThreadPool::addThread(int count)
 		}
 	}
 }
+
+	void LThreadPool::pushTask(LTask *task)
+	{
+		if (m_stopFlag.load())
+		{
+			LLOG("LTheadPool: closed. no task can be added");
+			return;
+		}
+		m_mutexTask.lock();
+		m_taskQueue.push(task);
+		m_mutexTask.unlock();
+		m_cvTask.notify_all();
+	}
+
+	bool LThreadPool::doAddDefaultThread()
+	{
+		if (m_theadPool.empty())
+		{
+			this->addThread();
+			return true;
+		}
+		return false;
+	}
 
 NS_LONG_END

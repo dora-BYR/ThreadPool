@@ -1,19 +1,24 @@
 #include "LTest.h"
+#include "../src/LTask.h"
+#include "../src/LThreadPool.h"
 
 NS_LONG_BEGIN
 
 void LTest::test_single_thread_multi_task()
 {
-	auto pool = LThreadPool::getInstance();
-	pool->pushTask([=]() {
-		LLOG("i'm a sub thread task 1");
-		int count = 0;
-		do {
-			LLOG("i'm task 1");
-			count = count + 1;
-		} while (count < 10);
-	});
-	pool->pushTask([=]() {
+	// sample 1
+//	LTask task1([=]() {
+//		LLOG("i'm a sub thread task 1");
+//		int count = 0;
+//		do {
+//			LLOG("i'm task 1");
+//			count = count + 1;
+//		} while (count < 10);
+//	});
+//	task1.commit();
+
+	// sample 2
+	auto task2 = LTask::create([=]() {
 		LLOG("i'm a sub thread task 2");
 		int count = 0;
 		do {
@@ -21,6 +26,10 @@ void LTest::test_single_thread_multi_task()
 			count = count + 1;
 		} while (count < 8);
 	});
+	task2->commit();
+
+	// sample 3
+	auto pool = LThreadPool::getInstance();
 	pool->pushTask([=]() {
 		LLOG("i'm a sub thread task 3");
 		int count = 0;

@@ -122,16 +122,22 @@ class LTask
 {
 public:
     LTask();
+	LTask(TaskData * taskData);
+	LTask(std::function<void()> taskFunc);
+	LTask(std::function<void(TaskDataParam *)> taskFunction, TaskDataParam * dataParam);
 	virtual ~LTask();
+
 	static LTask * create(TaskData * taskData);
-	void execute();
+	static LTask * create(std::function<void()> taskFunc);
+	static LTask * create(std::function<void(TaskDataParam *)> taskFunction, TaskDataParam * dataParam);
+
+	void commit(bool addNewThread = false);
+
 public:
+	void execute();
 	TaskData * getTaskData();
 	std::string getID();
 	std::function<void()> getTaskFunction();
-
-private:
-	bool initialize(TaskData * taskData);
 
 private:
 	TaskData * m_pTaskData;
